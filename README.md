@@ -1,5 +1,7 @@
 # Do Heon Han — personal website
 
+## https://brian-han77.github.io/personal-website-2026/
+
 Static site in `dist/` (plain HTML, CSS and JavaScript, no build step). The hero plays "Enter Sandman" on my own guitar recordings; type A S D F G H J K L or click the letters.
 
 - `dist/data/research.json` is a snapshot of my Google Scholar profile. Refresh it with `python3 update-scholar.py`, then redeploy.
