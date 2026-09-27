@@ -42,7 +42,9 @@ header.bar{position:sticky;top:0;z-index:10;max-width:none;background:rgba(10,10
 .bar-foot .credits a:hover{color:var(--fg)}
 
 /* ---------- Hero instrument ---------- */
-.hero{max-width:1680px;margin:0 auto;padding-bottom:8px}
+.hero{max-width:1680px;margin:0 auto;padding-bottom:8px;overflow-x:clip}
+/* Clipping sideways keeps the glow and embers from the outer letters (like High E) from widening
+   the page for a moment, which made everything jiggle sideways on narrow screens. */
 .name-cta{display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:44px}
 .blinker{cursor:pointer;display:flex;align-items:center;gap:10px;font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
 .blinker:before{content:'';width:7px;height:7px;background:currentColor}
@@ -63,7 +65,7 @@ header.bar{position:sticky;top:0;z-index:10;max-width:none;background:rgba(10,10
 .note-key:not(.bookend) .letter{font-size:calc(var(--f)*1.05);margin-top:calc(var(--f)*-.01)}
 .key-label{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:6px;font:400 11px/1.2 var(--mono);color:var(--dim);white-space:nowrap}
 .bookend .key-label{flex-direction:row;justify-content:flex-end;gap:8px;padding:0 10%}
-.name-word:last-child .bookend .key-label{justify-content:flex-start}
+.name-word:last-of-type .bookend .key-label{justify-content:flex-start}
 /* Each label is a keycap for the computer key, then the plain-English sound. */
 .key-label kbd{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 5px;border:1px solid var(--faint);border-bottom-width:2px;font:500 11px/1 var(--mono);color:var(--text)}
 .note-key.next .key-label,.note-key.lit .key-label{color:var(--fg)}
@@ -71,7 +73,7 @@ header.bar{position:sticky;top:0;z-index:10;max-width:none;background:rgba(10,10
 /* The next letter to play gets a small bobbing arrow. */
 .note-key.next:after{content:'';position:absolute;left:50%;top:calc(var(--f)*.2 - 24px);border:6px solid transparent;border-top:8px solid var(--accent);border-bottom:0;transform:translateX(-50%);animation:nudge 1s ease-in-out infinite;pointer-events:none}
 .bookend.next:after{top:-16px;left:calc(var(--f)*.5)}
-.name-word:last-child .bookend.next:after{left:calc(var(--f)*.06)}
+.name-word:last-of-type .bookend.next:after{left:calc(var(--f)*.06)}
 @keyframes nudge{50%{transform:translate(-50%,4px)}}
 /* Hovering a letter gives it a soft yellow glow; played notes flare yellow, cool off slowly and throw sparks (see embers() in music.js). */
 .note-key:hover .letter{text-shadow:0 0 10px #ffd60aaa,0 0 26px #ff9f0a77;transition:transform .18s,text-shadow .25s,color .25s}
@@ -337,6 +339,8 @@ header.bar{position:sticky;top:0;z-index:10;max-width:none;background:rgba(10,10
 /* ---------- Scroll moments (scroll.js adds .scroll-fx; .calm means reduced motion) ---------- */
 header.bar:after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);transform:scaleX(var(--progress,0));transform-origin:left}
 .scroll-fx .name-instrument{will-change:transform,opacity;transform-origin:50% 0}
+/* Status messages get two lines of room on narrower screens, so a long one never pushes the page down. */
+@media(max-width:1100px){#music-status{flex-basis:100%;margin-left:0;min-height:3em;line-height:1.5}}
 .scroll-fx:not(.calm) .reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .scroll-fx .reveal.in{opacity:1;transform:none}
 .scroll-fx:not(.calm) .about-copy>:nth-child(2).reveal{transition-delay:.08s}
