@@ -1,0 +1,11 @@
+# Local hosting config (project id) for the deploy tool
+.openai/
+
+# macOS
+.DS_Store
+
+# Personal documents
+0917_cover_letter_final.pdf
+
+# Original, uncompressed media (the site uses the compressed copies in dist/video)
+media-originals/

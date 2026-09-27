@@ -1,0 +1,39 @@
+{
+ "updated": "2026-09-27T04:36:43+00:00",
+ "source": "Google Scholar",
+ "profile": "https://scholar.google.com/citations?user=2E-36fYAAAAJ",
+ "citations": 92,
+ "hIndex": 3,
+ "i10Index": 2,
+ "perYear": {
+  "2024": 4,
+  "2025": 35,
+  "2026": 53
+ },
+ "papers": [
+  {
+   "title": "Open-universe indoor scene generation using llm program synthesis and uncurated object databases",
+   "authors": "R Aguina-Kang, M Gumin, DH Han, S Morris, SJ Yoo, A Ganeshan, ...",
+   "venue": "arXiv preprint arXiv:2403.09675",
+   "year": 2024,
+   "citations": 78,
+   "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2E-36fYAAAAJ&pagesize=100&citation_for_view=2E-36fYAAAAJ:u5HHmVD_uO8C"
+  },
+  {
+   "title": "Procedural scene programs for open-universe scene generation: Llm-free error correction via program search",
+   "authors": "M Gumin, DH Han, SJ Yoo, A Ganeshan, RK Jones, K Fu, R Aguina-Kang, ...",
+   "venue": "Proceedings of the SIGGRAPH Asia 2025 Conference Papers, 1-11",
+   "year": 2025,
+   "citations": 11,
+   "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2E-36fYAAAAJ&pagesize=100&citation_for_view=2E-36fYAAAAJ:u-x6o8ySG0sC"
+  },
+  {
+   "title": "Imperative vs. declarative programming paradigms for open-universe scene generation",
+   "authors": "M Gumin, DH Han, SJ Yoo, A Ganeshan, RK Jones, R Aguina-Kang, ...",
+   "venue": "arXiv preprint arXiv:2504.05482",
+   "year": 2025,
+   "citations": 3,
+   "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=2E-36fYAAAAJ&pagesize=100&citation_for_view=2E-36fYAAAAJ:d1gkVwhDpl0C"
+  }
+ ]
+}
