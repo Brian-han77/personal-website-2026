@@ -74,14 +74,30 @@
     drag = null;
     stage.classList.remove('dragging');
   }
-  stage.addEventListener('pointerup',endDrag);
+  // Phones don't send dblclick for a double-tap, so count taps on touch screens ourselves:
+  // two taps close together in time and place (not a drag, not on a link) flip the card.
+  let lastTap = null;
+  stage.addEventListener('pointerup',event => {
+    const tap = drag && event.pointerId === drag.id && !drag.moved && event.pointerType !== 'mouse' && !event.target.closest('a');
+    endDrag(event);
+    if (!tap) { lastTap = null; return; }
+    const now = performance.now();
+    if (lastTap && now - lastTap.time < 400 && Math.hypot(event.clientX - lastTap.x,event.clientY - lastTap.y) < 40) {
+      flip(); lastTap = null;
+    } else lastTap = { time: now, x: event.clientX, y: event.clientY };
+  });
   stage.addEventListener('pointercancel',endDrag);
   // A drag that ends over a link shouldn't open it.
   stage.addEventListener('click',event => {
     if (suppressClick) { event.preventDefault(); event.stopPropagation(); suppressClick = false; }
   },true);
 
+  // Some phones send both our double-tap and a dblclick; one gesture should flip only once.
+  let lastFlip = 0;
   function flip() {
+    const now = performance.now();
+    if (now - lastFlip < 400) return;
+    lastFlip = now;
     touched = true; vx = vy = 0;
     const base = Math.round(ry / 180) * 180;
     flipTo = base + 180;

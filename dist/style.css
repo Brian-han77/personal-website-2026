@@ -296,6 +296,8 @@ header.bar{position:sticky;top:0;z-index:10;max-width:none;background:rgba(10,10
 .contact{padding-bottom:0}
 .card-stage{position:relative;display:grid;place-items:center;padding:clamp(64px,9vw,120px) 0 clamp(90px,11vw,150px);perspective:1600px;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none;outline:0}
 .card-stage.dragging{cursor:grabbing}
+.hint-touch{display:none}
+@media(hover:none) and (pointer:coarse){.hint-touch{display:inline}.hint-mouse{display:none}}
 .card-stage:focus-visible .card-front{outline:2px solid var(--accent);outline-offset:6px}
 .card3d{position:relative;width:min(600px,86vw);aspect-ratio:1.75;transform-style:preserve-3d;will-change:transform;--sheen:50%}
 /* Stacked layers between the faces give the card an edge you can see when it turns. */
